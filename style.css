@@ -1,15 +1,13 @@
 :root {
-    --bg: #f5f6f7;
+    --bg: #F2EBDC;
     --surface: #ffffff;
     --text: #1a1a1a;
     --muted: #6b7280;
     --border: #e5e7eb;
-
     --yellow: #facc15;
     --orange: #f97316;
     --red: #ef4444;
     --yellow-light: #fef9c3;
-
     --shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
     --radius: 12px;
 }
@@ -28,11 +26,17 @@ body {
     color: var(--text);
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     line-height: 1.55;
+    -webkit-text-size-adjust: 100%;
 }
 
 a {
     color: inherit;
     text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
 
 .container {
@@ -41,13 +45,13 @@ a {
     padding: 0 24px;
 }
 
-/* Header */
 .site-header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(242, 235, 220, 0.92);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
 }
 
@@ -91,7 +95,6 @@ a {
     color: var(--orange);
 }
 
-/* Hero */
 .hero {
     padding: 88px 0 72px;
     background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
@@ -114,7 +117,7 @@ a {
 .hero h1 {
     max-width: 800px;
     margin: 0;
-    font-size: clamp(32px, 5vw, 52px);
+    font-size: clamp(30px, 5vw, 52px);
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
@@ -138,7 +141,7 @@ a {
     align-items: center;
     justify-content: center;
     min-width: 170px;
-    padding: 13px 22px;
+    padding: 14px 22px;
     border-radius: 10px;
     font-size: 15px;
     font-weight: 600;
@@ -190,7 +193,6 @@ a {
     font-weight: 600;
 }
 
-/* Sections */
 .section {
     padding: 72px 0;
 }
@@ -208,7 +210,6 @@ a {
     max-width: 640px;
 }
 
-/* Projects */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -268,6 +269,7 @@ a {
 .project-card:hover .project-preview img {
     transform: scale(1.03);
 }
+
 .project-card h3 {
     margin: 0 0 10px;
     font-size: 18px;
@@ -316,7 +318,6 @@ a {
     color: var(--red);
 }
 
-/* Skills */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -354,7 +355,6 @@ a {
     border-bottom: 0;
 }
 
-/* Process */
 .process-steps {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -388,9 +388,8 @@ a {
     font-size: 14px;
 }
 
-/* Contacts */
 .section-contacts {
-    background: #ffffff;
+    background: var(--surface);
     border-top: 1px solid var(--border);
 }
 
@@ -426,9 +425,9 @@ a {
 .contact-value {
     font-size: 15px;
     font-weight: 600;
+    word-break: break-word;
 }
 
-/* Footer */
 .site-footer {
     padding: 28px 0;
     background: #111827;
@@ -441,7 +440,6 @@ a {
     text-align: center;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
     .projects-grid,
     .skills-grid,
@@ -453,6 +451,7 @@ a {
     .hero-facts {
         grid-template-columns: 1fr;
         gap: 16px;
+        margin-top: 40px;
     }
 
     .nav {
@@ -461,18 +460,98 @@ a {
 }
 
 @media (max-width: 600px) {
+    .container {
+        padding: 0 16px;
+    }
+
     .projects-grid,
     .skills-grid,
     .process-steps,
     .contacts-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .hero {
-        padding: 56px 0 48px;
+        padding: 48px 0 40px;
+    }
+
+    .hero h1 {
+        font-size: clamp(28px, 8vw, 36px);
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .hero-actions {
+        gap: 10px;
+        margin-top: 24px;
     }
 
     .btn {
         width: 100%;
+        min-width: 0;
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 48px 0;
+    }
+
+    .section h2 {
+        font-size: 26px;
+    }
+
+    .section-lead {
+        font-size: 15px;
+        margin-bottom: 28px;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-preview {
+        height: 160px;
+    }
+
+    .project-card h3 {
+        font-size: 17px;
+    }
+
+    .skill-group,
+    .process-step,
+    .contact-card {
+        padding: 18px;
+    }
+
+    .site-header .container {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        gap: 12px;
+    }
+
+    .brand-name {
+        font-size: 15px;
+    }
+
+    .brand-role {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .section h2 {
+        font-size: 22px;
+    }
+
+    .project-preview {
+        height: 140px;
     }
 }
